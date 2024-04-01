@@ -13,11 +13,14 @@ const Login = () => {
     const [showPassword, setShowPassword] = useState(false);
     //const [showAlert, setShowAlert] = useState(false);
 
+    const validUsername = 'user';
+    const validPassword = 'password';
+
     const handleLogin = (e) => {
         e.preventDefault();
         // Static data for user validation
-        const validUsername = 'user';
-        const validPassword = 'password';
+
+        localStorage.setItem("username", validUsername);
 
         // Check if entered credentials match static data
         if (username === validUsername && password === validPassword) {
@@ -36,10 +39,10 @@ const Login = () => {
     }
 
     return (
-        <div>
+        <div className='mainSection'>
             <header className="header">
                 <NavLink to='/'>
-                    <img src={require('../../assets/InspiraLogo.jpg')} alt="Logo" width={90} height={70} />
+                    <img src={require('../../assets/InspiraLogo.jpg')} alt="Logo" width={120} height={70} />
                 </NavLink>
             </header>
             <div className="login-container">
@@ -75,7 +78,7 @@ const Login = () => {
 
                                 </div>
                             </div>
-                            <button type="submit" className='button'>Login</button>
+                            <button disabled={username && password ? false : true} type="submit" className='button'>Login</button>
                         </form>
                     </div>
                     <div className='verticalLine'></div>

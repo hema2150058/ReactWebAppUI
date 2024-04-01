@@ -1,19 +1,17 @@
+.mainSection{
+    overflow: hidden;
+}
 
 /* Style for the header */
 .header {
-    
-    height: 3rem;
-    padding: 0  4.8rem;
-    /* width: 100%; */
+    height: 5rem;
+    padding: 0 4.8rem;
+    padding-top: 0.5rem;
     min-width: 100%;
-    background-color: 'pink';
-    /* box-sizing: border-box; */
-    
-    /* align-items: center; */
-    
-    
+    background-color: rgb(0, 0, 97);
+    overflow: hidden;
 }
- 
+
 /* Style for the login container */
 .login-container {
     display: flex;
@@ -23,33 +21,37 @@
     /* //height: 100vh;  */
     padding-top: 100px;
 }
- 
+
 /* Style for the logo */
 .logo-container img {
-    width: 100px; /* Adjust size as needed */
+    width: 100px;
+    /* Adjust size as needed */
     height: auto;
 }
- 
+
 /* Style for the content container */
 .content-container {
     display: flex;
     justify-content: space-between;
     width: 100%;
-    max-width: 600px; /* Adjust max width as needed */
+    max-width: 600px;
+    /* Adjust max width as needed */
     padding: 20px;
     box-sizing: border-box;
 }
- 
+
 /* Style for the login form container */
 .login-form-container {
-    width: 43%; /* Adjust width as needed */
+    width: 43%;
+    /* Adjust width as needed */
 }
- 
+
 /* Style for the create profile container */
 .create-profile-container {
-    width: 43%; /* Adjust width as needed */
+    width: 43%;
+    /* Adjust width as needed */
 }
- 
+
 /* Style for form elements */
 .form-group {
     margin-bottom: 15px;
@@ -59,14 +61,14 @@ h2 {
     color: navy;
     font-weight: 700;
 }
- 
+
 label {
     display: block;
     margin-bottom: 5px;
     color: navy;
     font-weight: 500;
 }
- 
+
 input {
     width: 100%;
     padding: 8px;
@@ -74,7 +76,7 @@ input {
     border-radius: 3px;
     border-width: 2px;
 }
- 
+
 .button {
     width: 40%;
     padding: 15px;
@@ -83,15 +85,21 @@ input {
     border: none;
     border-radius: 3px;
     cursor: pointer;
+    transition-duration: 0.1s;
 }
- 
+
+.button:hover {
+    background-color: #00172f;
+    color: white;
+}
+
 /* Style for create profile link */
 .create-profile-container p {
     margin: 0;
 }
- 
+
 .create-profile-container a {
-    color: #007bff;
+    /* color: #007bff; */
     text-decoration: none;
 }
 
@@ -105,7 +113,14 @@ input {
     border: 0;
     color: navy;
     font-weight: 500;
+    cursor: pointer;
+    transition-duration: 0.1s;
 }
+
+.profilebutton:hover {
+    background-color: rgb(240, 184, 0);
+}
+
 h5 {
     font-size: small;
     margin-top: 12px;
@@ -113,8 +128,8 @@ h5 {
 
 .alert {
     position: fixed;
-    top:50%;
-    left:50%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     background-color: "lightpink";
     color: "red";
@@ -126,7 +141,7 @@ h5 {
 .password-input {
     position: relative;
 }
- 
+
 /* Style for the eye icon */
 .password-toggle {
     position: absolute;
@@ -136,7 +151,7 @@ h5 {
     cursor: pointer;
     color: #999;
 }
- 
+
 /* Style for the eye icon on hover */
 .password-toggle:hover {
     color: #333;
@@ -160,5 +175,5 @@ Input {
     width: 1px;
     background-color: silver;
     margin-left: 0px;
-    margin-right:  5px;
+    margin-right: 5px;
 }
