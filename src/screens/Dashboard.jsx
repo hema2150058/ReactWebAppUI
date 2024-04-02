@@ -31,12 +31,12 @@ const Dashboard = () => {
   return (
     <div className="dashboard-container">
       <header className="dashboard-header">
-        <p style={{ fontSize: '2rem', fontFamily: "system-ui", paddingLeft: "8rem" }}>PAYFLEX</p>
+        <p style={{ fontSize: '2rem', fontFamily: "calibri", paddingLeft: "2rem" }}>Inspira</p>
         <nav className="tab-navigation">
           <ul>
             <li className={activeTab === 'home' ? 'active' : ''} onClick={() => handleTabClick('home')}>Home</li>
             <li className={activeTab === 'help' ? 'active' : ''} onClick={() => handleTabClick('help')}>Help & Support</li>
-            <li className={activeTab === 'account' ? 'active' : ''} onClick={() => handleTabClick('account')}>Account Settings</li>
+            <li className={activeTab === 'account' ? 'active' : ''} onClick={() => handleTabClick('account')}>Profile</li>
             <li onClick={() => handleTabClick('logout')}>Logout</li>
           </ul>
         </nav>
