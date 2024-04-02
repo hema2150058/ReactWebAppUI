@@ -4,8 +4,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faEye, } from '@fortawesome/free-solid-svg-icons';
 
 import './Login.css';
+import { useEffect } from 'react';
 
 const Login = () => {
+
+    useEffect(()=>{
+        localStorage.clear();
+    })
 
     const navigate = useNavigate();
     const [username, setUsername] = useState('');
@@ -19,6 +24,11 @@ const Login = () => {
     const handleLogin = (e) => {
         e.preventDefault();
         // Static data for user validation
+
+        if(username==='' && password===''){
+            alert('Please enter username and password. ');
+            return;
+        }
 
         localStorage.setItem("username", validUsername);
 
@@ -78,7 +88,7 @@ const Login = () => {
 
                                 </div>
                             </div>
-                            <button disabled={username && password ? false : true} type="submit" className='button'>Login</button>
+                            <button type="submit" className='button'>Login</button>
                         </form>
                     </div>
                     <div className='verticalLine'></div>
