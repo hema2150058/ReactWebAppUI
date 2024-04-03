@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import './Dashboard.css'; // Import your CSS file
+import Profile from './Profile';
 
 const Dashboard = () => {
 
@@ -46,7 +47,7 @@ const Dashboard = () => {
         <div className="tab-content">
           {activeTab === 'home' && <p style={pStyle}>Welcome, {localStorage.getItem("username")}</p>}
           {activeTab === 'help' && <p style={pStyle}>Help & Support Content</p>}
-          {activeTab === 'account' && <p style={pStyle}>Account Settings Content</p>}
+          {activeTab === 'account' && <p ><Profile/></p>}
           {activeTab === 'logout' && <p style={pStyle}>Logout Content</p>}
         </div>
       </div>

@@ -8,7 +8,7 @@ import { useEffect } from 'react';
 
 const Login = () => {
 
-    useEffect(()=>{
+    useEffect(() => {
         localStorage.clear();
     })
 
@@ -16,6 +16,8 @@ const Login = () => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
     const [showPassword, setShowPassword] = useState(false);
+    const [userNameError, setUserNameError] = useState();
+    const [passwordError, setPasswordError] = useState();
     //const [showAlert, setShowAlert] = useState(false);
 
     const validUsername = 'user';
@@ -25,10 +27,10 @@ const Login = () => {
         e.preventDefault();
         // Static data for user validation
 
-        if(username==='' && password===''){
-            alert('Please enter username and password. ');
-            return;
-        }
+        // if(username==='' && password===''){
+        //     alert('Please enter username and password. ');
+        //     return;
+        // }
 
         localStorage.setItem("username", validUsername);
 
@@ -36,16 +38,40 @@ const Login = () => {
         if (username === validUsername && password === validPassword) {
             // Navigate to dashboard if credentials are valid
             navigate('/dashboard');
-        } else {
-            // Show alert box if credentials are incorrect
-            alert('Incorrect username or password. Please try again.');
-            setPassword('');
+        } else if (!username.trim() && !password.trim()) {
+            setUserNameError('Username is required');
+            setPasswordError('Password is required');
 
-            //setShowAlert(true);
+        }
+        else if (!username.trim() && password.trim()) {
+            setUserNameError('Username is required');
+            setPasswordError('');
+
+        }
+        else if (username.trim() && !password.trim()) {
+            setUserNameError('');
+            setPasswordError('Password is required');
+
+        }
+        else if (!username.trim()) {
+            setUserNameError('Username is required');
+        } else if (!password.trim()) {
+            setPasswordError('Password is required');
+        }
+        else {
+            setUserNameError('');
+            setPasswordError('');
+            //setUsername('');
+            setPassword('');
+            alert('Invalid credentials. Please try again.');
         }
     }
     const togglePasswordVisibility = () => {
         setShowPassword(showPassword ? false : true);
+    }
+
+    const handleRegister = () => {
+        alert('will navigate to registration screen');
     }
 
     return (
@@ -70,6 +96,7 @@ const Login = () => {
                                     placeholder='Enter your username'
                                     onChange={(e) => setUsername(e.target.value)}
                                 />
+                                {userNameError ? <p style={{ color: 'red', fontSize: 12, marginTop: 0, marginLeft: '2px' }}>{userNameError}</p> : null}
                             </div>
                             <div className="form-group">
                                 <label htmlFor="password">Password</label>
@@ -85,6 +112,7 @@ const Login = () => {
                                     {/* <i className={`password-toggle ${showPassword ? 'fa fa-eye-slash' : 'fa fa-eye'}`} 
 //                                     onClick={togglePasswordVisibility}></i> */}
                                     <span className='toggleicon' onClick={togglePasswordVisibility}>{showPassword ? <FontAwesomeIcon icon={faEye} color='grey' /> : <FontAwesomeIcon icon={faEyeSlash} color='grey' />}</span>
+                                    {passwordError ? <p style={{ color: 'red', fontSize: 12, marginTop: 0, marginLeft: '2px' }}>{passwordError}</p> : null}
 
                                 </div>
                             </div>
@@ -95,7 +123,7 @@ const Login = () => {
                     <div className="create-profile-container">
                         <h2>New to Inspira Financial?</h2>
                         <p>Create an online profile to manage your Inspira account. </p>
-                        <button type='button' className='profilebutton' onClick={handleLogin}><h5>CREATE PROFILE</h5></button>
+                        <button type='button' className='profilebutton' onClick={handleRegister}><h5>CREATE PROFILE</h5></button>
                     </div>
                 </div>
                 {/* {showAlert && (

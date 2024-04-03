@@ -1,0 +1,93 @@
+
+/* profile.css */
+.profile-main{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+ 
+.profile-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: -3.5rem;
+    background-color: lightsteelblue;
+    /* color: yellow; */
+    width: 40vw;   
+    border-radius: 5px;
+}
+.profileImg{
+    height: 18vh;
+    width: 18vh;
+    border-radius: 50%;
+    z-index: 100;
+}
+ 
+.profile-box {
+    border: 1px solid #ccc;
+    padding: 20px;
+    border-radius: 5px;
+    width: 400px;
+    margin-top: 60px;
+    margin-bottom: 10px;
+    background-color: white;
+}
+ 
+.field {
+    margin-bottom: 20px;
+}
+ 
+.label {
+    font-weight: bold;
+}
+ 
+.input-container {
+    position: relative;
+    
+}
+ 
+.profileInput {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: lightsteelblue;
+}
+ 
+.fa-edit,
+.fa-check {
+    position: absolute;
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%);
+    cursor: pointer;
+}
+ 
+.submit-button {
+    background-color: navy;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    margin-left: 8rem;
+}
+ 
+.submit-button:hover {
+    background-color: #0056b3;
+}
+
+.editIcon {
+    /* //margin-right: 50rem; */
+    
+        position: absolute;
+        top: 8px;
+        right: 10px;
+        z-index: 1000;
+        cursor: pointer;
+        color: navy;
+        
+}
