@@ -22,9 +22,11 @@ const Profile = () => {
         userName: 'John Doe',
         email: 'john@example.com',
         address: '123 Main St, City',
-        phoneNumber: '123-456-7890'
+        phoneNumber: '9879798897'
     });
+    // const [email, setEmail] = useState('');
 
+    // var isValid =true;
     // State to track editable fields
     const [editableFields, setEditableFields] = useState({
         userName: false,
@@ -32,6 +34,8 @@ const Profile = () => {
         address: false,
         phoneNumber: false
     });
+
+    //const [emailError, setEmailError] = useState('');
 
     // Function to toggle edit mode for a field
     const toggleEditMode = (field) => {
@@ -41,6 +45,16 @@ const Profile = () => {
         }));
     }
 
+    // const handleEmailChange = (text) => {
+    //     setEmail(text);
+    //     if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(text)) {
+    //       setEmailError('Invalid email address');
+    //       isValid = false;
+    //     } else {
+    //       setEmailError('');
+    //     }
+    //   };
+      
     // Function to handle changes to input fields
     const handleChange = (e, field) => {
         setUserData(prevState => ({
@@ -49,6 +63,15 @@ const Profile = () => {
         }));
     }
 
+    // const handleEmailBlur = () => {
+    //     if (!/^[\w-]+(\.[\w-]+)*@([\w-]+\.)+[a-zA-Z]{2,7}$/.test(email)) {
+    //         setEmailError('Invalid email address blur');
+    //         isValid = false;
+    //       }
+    //       else {
+    //         setEmailError('');
+    //       }
+    // }
     // Function to handle saving changes
     const handleSave = (field) => {
         toggleEditMode(field); // Disable edit mode
@@ -57,9 +80,19 @@ const Profile = () => {
 
     // Function to handle form submission
     const handleSubmit = () => {
+
+        // isValid = true;
+        // handleEmailBlur();
+        // if(isValid){
+        setEditableFields({
+            userName: false,
+            email: false,
+            phoneNumber: false,
+            address: false
+        });
         // Perform form submission logic here
         alert(`Changes submitted successfully! \n New user Data: \n${JSON.stringify(userData, null, 2)}`);
-        
+    
     }
 
     return (
@@ -99,7 +132,7 @@ const Profile = () => {
                                 value={userData.email}
                                 onChange={(e) => handleChange(e, 'email')}
                                 disabled={!editableFields.email}
-                            />
+                                                            />
                             <span className='editIcon'>
                                 {editableFields.email ? (
                                     <FontAwesomeIcon icon={faSquareCheck} onClick={() => handleSave('email')} />
@@ -108,14 +141,15 @@ const Profile = () => {
                                 )}
                             </span>
                         </div>
-                    </div>
+                                            </div>
                     <div className="field">
                         <label>Phone number</label>
                         <div className="input-container">
                             <input
                                 className='profileInput'
-                                type="text"
+                                type="number"
                                 value={userData.phoneNumber}
+                                maxLength={10}
                                 onChange={(e) => handleChange(e, 'phoneNumber')}
                                 disabled={!editableFields.phoneNumber}
                             />
