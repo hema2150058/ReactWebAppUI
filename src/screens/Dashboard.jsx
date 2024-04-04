@@ -2,11 +2,8 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import './Dashboard.css'; // Import your CSS file
-<<<<<<< HEAD
 import Home from './Home/Home';
-=======
 import Profile from './Profile';
->>>>>>> e869aea656dd3999aa0eec98aa93e4c1e1528443
 
 const Dashboard = () => {
 
@@ -51,7 +48,7 @@ const Dashboard = () => {
         <div className="tab-content">
           {activeTab === 'home' && <Home />}
           {activeTab === 'help' && <p style={pStyle}>Help & Support Content</p>}
-          {activeTab === 'account' && <p ><Profile/></p>}
+          {activeTab === 'account' && <Profile/>}
           {activeTab === 'logout' && <p style={pStyle}>Logout Content</p>}
         </div>
       </div>

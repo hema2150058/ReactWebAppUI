@@ -23,14 +23,13 @@ function Home() {
                                             <p className='accountName' style={{ color: '#ffae00' }}>{item.accountName}</p>
                                             :
                                             <p className='accountName' style={{ color: '#2600ff' }}>{item.accountName}</p>}
-                            </div>
-                            <div className="accountCard-2">
-                                <button className="custom-btn btn-1">View Investment Dashboard</button>
+                            
+                                <p className='employerName'>{item.employerName}</p>
                             </div>
                         </div>
-                        <div className="accountCard-a">
-                            <div className='employerName'>
-                                {item.employerName}
+                        <div className="accountCard-b">
+                            <div className="accountCard-2">
+                                <button className="custom-btn btn-1">View Investment Dashboard</button>
                             </div>
                             <div className='balance'>
                                 Balance: ${item.balance}

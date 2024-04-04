@@ -1,13 +1,17 @@
+*{
+    box-sizing: border-box;
+}
+
 .mainDiv {
     background-color: rgb(230, 230, 230);
     min-height: 100%;
     padding: 0 0 2rem 0;
+    min-width: 100%;
 }
 .welcomeUser {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: 2.25rem;
     padding-left: 5%;
-    padding-top: 2rem;
     font-weight: normal;
 }
 .accountCard {
@@ -16,30 +20,25 @@
     background-color: rgb(255, 255, 255);
     margin: 0 0 0 5%;
     border-radius: 10px;
-    border: 1.5px solid black;
+    border: 1.5px solid rgb(0, 0, 0);
     outline: 1px solid rgb(0, 0, 0);
     outline-offset: -5px;
     margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
 }
 
 .accountCard-a {
-    max-height: 3.5rem;
-    min-width: 195rem;
-    max-width: 195rem;
-    overflow: hidden;
-    margin-left: 1rem;
+    min-width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
-
-.accountCard-1 {
-    width: 30rem;
-    float: left;
-}
-
-.accountCard-2 {
-    width: 15rem; 
-    float: left;
-    margin-top: .5rem;
-    margin-left: 32rem;
+.accountCard-b {
+    min-width: 40%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
 }
 
 .accountName{
@@ -53,11 +52,11 @@
 }
 
 .custom-btn {
-    width: 300px;
+    width: 70%;
     height: 35px;
     color: #fff;
     border-radius: 5px;
-    padding: 5px 25px;
+    padding: 5px 5px;
     font-family: 'serif';
     font-weight: 600;
     background: transparent;
@@ -70,8 +69,8 @@
       7px 7px 20px 0px rgba(1, 149, 99, 0.1),
       4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
-    margin-left: -4rem;
-    margin-top: .5rem;
+    margin-left: 7rem;
+    margin-top: .75rem;
    }
    
    .btn-1 {
@@ -93,18 +92,17 @@
    }
 
    .employerName{
-    min-width: 55.2rem;
-    max-width: 55.2rem;
-    padding: 1.4rem 0 0 .75rem;
+    width: 100%;
+    margin: 0 0 .5rem .8rem;
     font-size: 16px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     float: left;
    }
    .balance{
-    padding: 1rem 0 0 2rem;
+    padding-top: 1.8rem;
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    float: left;
     font-weight: bold;
+    margin-left: 7rem;
    }
    
