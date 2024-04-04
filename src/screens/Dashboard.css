@@ -43,8 +43,14 @@
 }
 
 .tab-content {
+<<<<<<< HEAD
     padding-top: 0;
     min-height: 100%;
+=======
+    display: flex;
+    margin-top: 20px;
+    justify-content: center; 
+>>>>>>> e869aea656dd3999aa0eec98aa93e4c1e1528443
 }
 
 li{
