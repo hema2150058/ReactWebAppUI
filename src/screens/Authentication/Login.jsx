@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useNavigate, Link, NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faEyeSlash, faEye, } from '@fortawesome/free-solid-svg-icons';
 
@@ -20,17 +20,30 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState();
     //const [showAlert, setShowAlert] = useState(false);
 
-    const validUsername = 'user';
-    const validPassword = 'password';
+    const validUsername = 'John';
+    const validPassword = '1234';
 
     const handleLogin = (e) => {
         e.preventDefault();
         // Static data for user validation
 
+        if (username === '' && password === '') {
+            alert('Please enter username and password. ');
+            return;
+        }
         // if(username==='' && password===''){
         //     alert('Please enter username and password. ');
         //     return;
         // }
+
+        // const userdata = {
+        //     "username": username,
+        //     "password": password
+        // }
+
+        // const response = LoginStatus(userdata);
+        // console.log(response);
+        // // localStorage.setItem("username", response);
 
         localStorage.setItem("username", validUsername);
 
