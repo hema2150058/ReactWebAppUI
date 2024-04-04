@@ -1,0 +1,110 @@
+.mainDiv {
+    background-color: rgb(230, 230, 230);
+    min-height: 100%;
+    padding: 0 0 2rem 0;
+}
+.welcomeUser {
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: 2.25rem;
+    padding-left: 5%;
+    padding-top: 2rem;
+    font-weight: normal;
+}
+.accountCard {
+    width: 90%;
+    height: 7rem;
+    background-color: rgb(255, 255, 255);
+    margin: 0 0 0 5%;
+    border-radius: 10px;
+    border: 1.5px solid black;
+    outline: 1px solid rgb(0, 0, 0);
+    outline-offset: -5px;
+    margin-bottom: 20px;
+}
+
+.accountCard-a {
+    max-height: 3.5rem;
+    min-width: 195rem;
+    max-width: 195rem;
+    overflow: hidden;
+    margin-left: 1rem;
+}
+
+.accountCard-1 {
+    width: 30rem;
+    float: left;
+}
+
+.accountCard-2 {
+    width: 15rem; 
+    float: left;
+    margin-top: .5rem;
+    margin-left: 32rem;
+}
+
+.accountName{
+    padding-left: 10px;
+    font-size: 2rem;
+    color: rgb(0, 197, 0);
+    font-family: 'calibri';
+    margin-top: 0rem;
+    padding-top: .5rem;
+    font-weight: bold;
+}
+
+.custom-btn {
+    width: 300px;
+    height: 35px;
+    color: #fff;
+    border-radius: 5px;
+    padding: 5px 25px;
+    font-family: 'serif';
+    font-weight: 600;
+    background: transparent;
+    font-size: medium;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    display: inline-block;
+    box-shadow: inset 2px 2px 2px 0px rgba(0, 255, 81, 0.5),
+      7px 7px 20px 0px rgba(1, 149, 99, 0.1),
+      4px 4px 5px 0px rgba(0,0,0,.1);
+    outline: none;
+    margin-left: -4rem;
+    margin-top: .5rem;
+   }
+   
+   .btn-1 {
+    background: rgb(0, 250, 54);
+    background: linear-gradient(0deg, rgb(0, 148, 17) 0%, rgb(3, 151, 0) 100%);
+    border: none;
+   }
+   
+   .btn-1:before {
+    height: 0%;
+    width: 2px;
+   }
+   
+   .btn-1:hover {
+    box-shadow: 4px 4px 6px 0 rgba(255,255,255,.5),
+                 -4px -4px 6px 0 rgba(116, 125, 136, .5), 
+       inset -4px -4px 6px 0 rgba(255,255,255,.2),
+       inset 4px 4px 6px 0 rgba(0, 0, 0, .4);
+   }
+
+   .employerName{
+    min-width: 55.2rem;
+    max-width: 55.2rem;
+    padding: 1.4rem 0 0 .75rem;
+    font-size: 16px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    float: left;
+   }
+   .balance{
+    padding: 1rem 0 0 2rem;
+    font-size: 20px;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    float: left;
+    font-weight: bold;
+   }
+   

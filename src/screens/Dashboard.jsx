@@ -2,17 +2,18 @@ import React, { useState } from 'react';
 import { useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import './Dashboard.css'; // Import your CSS file
+import Home from './Home/Home';
 
 const Dashboard = () => {
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!localStorage.getItem("username")) {
       navigate('/')
     }
-  }, [])
+  }, [navigate])
   const [activeTab, setActiveTab] = useState('home');
-
-  const navigate = useNavigate();
 
   const handleTabClick = (tab) => {
     setActiveTab(tab);
@@ -44,7 +45,7 @@ const Dashboard = () => {
       <div className="dashboard-content">
 
         <div className="tab-content">
-          {activeTab === 'home' && <p style={pStyle}>Welcome, {localStorage.getItem("username")}</p>}
+          {activeTab === 'home' && <Home />}
           {activeTab === 'help' && <p style={pStyle}>Help & Support Content</p>}
           {activeTab === 'account' && <p style={pStyle}>Account Settings Content</p>}
           {activeTab === 'logout' && <p style={pStyle}>Logout Content</p>}
