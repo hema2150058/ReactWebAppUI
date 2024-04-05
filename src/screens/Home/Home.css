@@ -5,25 +5,27 @@
 .mainDiv {
     background-color: rgb(230, 230, 230);
     min-height: 100%;
-    padding: 0 0 2rem 0;
+    padding: 0 0 0 0;
     min-width: 100%;
+    margin-top: -12px;
 }
 .welcomeUser {
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-    font-size: 2.25rem;
+    font-size: 2rem;
     padding-left: 5%;
     font-weight: normal;
+    padding: 1.2rem 0 1.2rem 5%;
 }
 .accountCard {
     width: 90%;
-    height: 7rem;
+    height: 6rem;
     background-color: rgb(255, 255, 255);
     margin: 0 0 0 5%;
     border-radius: 10px;
     border: 1.5px solid rgb(0, 0, 0);
     outline: 1px solid rgb(0, 0, 0);
     outline-offset: -5px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
 }
@@ -43,7 +45,7 @@
 
 .accountName{
     padding-left: 10px;
-    font-size: 2rem;
+    font-size: 1.5rem;
     color: rgb(0, 197, 0);
     font-family: 'calibri';
     margin-top: 0rem;
@@ -52,11 +54,11 @@
 }
 
 .custom-btn {
-    width: 70%;
-    height: 35px;
+    width: 100%;
+    height: 30px;
     color: #fff;
     border-radius: 5px;
-    padding: 5px 5px;
+    padding: 5px 50px 5px 50px;
     font-family: 'serif';
     font-weight: 600;
     background: transparent;
@@ -69,7 +71,7 @@
       7px 7px 20px 0px rgba(1, 149, 99, 0.1),
       4px 4px 5px 0px rgba(0,0,0,.1);
     outline: none;
-    margin-left: 7rem;
+    margin-left: 40%;
     margin-top: .75rem;
    }
    
@@ -93,16 +95,17 @@
 
    .employerName{
     width: 100%;
-    margin: 0 0 .5rem .8rem;
-    font-size: 16px;
+    margin: .4rem 0 0 .8rem;
+    font-size: 12px;
     font-family: Georgia, 'Times New Roman', Times, serif;
     float: left;
    }
    .balance{
-    padding-top: 1.8rem;
+    padding-top: 1.5rem;
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
-    margin-left: 7rem;
+    margin-left: 7.5rem;
+    font-size: medium;
    }
    

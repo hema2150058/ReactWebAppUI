@@ -5,6 +5,7 @@ import { faEyeSlash, faEye, } from '@fortawesome/free-solid-svg-icons';
 
 import './Login.css';
 import { useEffect } from 'react';
+import LoginStatus from '../../API/LoginStatus';
 
 const Login = () => {
 
@@ -23,7 +24,7 @@ const Login = () => {
     const validUsername = 'John';
     const validPassword = '1234';
 
-    const handleLogin = (e) => {
+    const handleLogin = async (e) => {
         e.preventDefault();
         // Static data for user validation
 
@@ -31,19 +32,15 @@ const Login = () => {
             alert('Please enter username and password. ');
             return;
         }
-        // if(username==='' && password===''){
-        //     alert('Please enter username and password. ');
-        //     return;
-        // }
 
-        // const userdata = {
-        //     "username": username,
-        //     "password": password
-        // }
+        const userdata = {
+            "username": username,
+            "password": password
+        }
 
-        // const response = LoginStatus(userdata);
-        // console.log(response);
-        // // localStorage.setItem("username", response);
+        const response = await LoginStatus(userdata);
+        console.log(response);
+        // localStorage.setItem("username", response);
 
         localStorage.setItem("username", validUsername);
 
