@@ -3,10 +3,8 @@ import './Home.css'
 function Home() {
     return (
         <div className='mainDiv'>
-            <div>
-                <p className='welcomeUser'>
+            <div className='welcomeUser'>
                     Hello, &nbsp;{localStorage.getItem("username")}
-                </p>
             </div>
             {accountData.accounts.map((item) => {
                 return (
