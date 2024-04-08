@@ -1,0 +1,97 @@
+ .cProfile-container {
+    width: 600px;
+    margin: 0 auto;
+    padding-top: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: lightsteelblue;
+    margin-top: 15px;
+    margin-bottom: 7px;
+    padding-bottom: 2px;
+}
+
+.cProfile-container h2 {
+    text-align: center;
+    color: navy;
+}
+
+.cProfile-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: white;
+    margin: 20px;
+}
+
+.cProfile-container form label {
+    
+    font-weight: 600;
+}
+
+.input-container {
+    position: relative;
+
+}
+
+.cProfile-container form input,
+textarea,
+select {
+    
+    width: 100%;
+    padding: 5px;
+    border: 1px solid white;
+    box-sizing: border-box;
+    border-radius: 5px;
+    border-width: 1px;
+    background-color: lightsteelblue;
+
+}
+
+
+input[type="date"]::-webkit-calendar-picker-indicator :active {
+    transform: scale(0.98);
+    
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    
+}
+
+
+.cProfile-container form input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+.cProfile-container form input[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+.errorinput {
+    color: red;
+    margin-top: 5px;
+    font-size: 0.9rem;
+}
+
+.row {
+    margin-top: 15px;
+}
+
+.inputerror {
+    border-color: red;
+}
+.registerbtn {
+    width: 8rem;
+    padding: 5px;
+    margin-left: 12rem;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+
+}
+
+.registerbtn:focus,
+.registerbtn:active {
+    outline: none !important;
+    box-shadow: none;
+} 
+ 

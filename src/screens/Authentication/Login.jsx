@@ -79,6 +79,7 @@ const Login = () => {
 
     const handleRegister = () => {
         alert('will navigate to registration screen');
+        navigate('/createProfile');
     }
 
     return (
