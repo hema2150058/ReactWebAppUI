@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate, NavLink } from "react-router-dom";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEyeSlash, faEye, } from '@fortawesome/free-solid-svg-icons';
 
 import './Login.css';
@@ -21,9 +21,6 @@ const Login = () => {
     const [passwordError, setPasswordError] = useState();
     //const [showAlert, setShowAlert] = useState(false);
 
-    const validUsername = 'John';
-    const validPassword = '1234';
-
     const handleLogin = async (e) => {
         e.preventDefault();
         // Static data for user validation
@@ -39,13 +36,13 @@ const Login = () => {
         }
 
         const response = await LoginStatus(userdata);
-        console.log(response);
+        console.log("Status-Code: " + response);
         // localStorage.setItem("username", response);
 
-        localStorage.setItem("username", validUsername);
+        localStorage.setItem("username", userdata.username);
 
         // Check if entered credentials match static data
-        if (username === validUsername && password === validPassword) {
+        if (response==="Success") {
             // Navigate to dashboard if credentials are valid
             navigate('/dashboard');
         } else if (!username.trim() && !password.trim()) {
@@ -94,8 +91,8 @@ const Login = () => {
             <div className="login-container">
                 <div className="content-container">
                     <div className="login-form-container">
-                        <h2>Login</h2>
-                        <form onSubmit={handleLogin}>
+                        <h2 className='h2style'>Login</h2>
+                        <form style={{ marginTop: 20 }} onSubmit={handleLogin}>
                             <div className="form-group">
                                 <label htmlFor="username">Username</label>
                                 <input
@@ -131,16 +128,11 @@ const Login = () => {
                     </div>
                     <div className='verticalLine'></div>
                     <div className="create-profile-container">
-                        <h2>New to Inspira Financial?</h2>
-                        <p>Create an online profile to manage your Inspira account. </p>
-                        <button type='button' className='profilebutton' onClick={handleRegister}><h5>CREATE PROFILE</h5></button>
+                        <h2 className='h2style'>New to Inspira Financial?</h2>
+                        <p style={{ marginTop: 20 }}>Create an online profile to manage your Inspira account. </p>
+                        <button type='button' className='profilebutton' onClick={handleRegister}><h6 style={{ marginTop: 5 }}>CREATE PROFILE</h6></button>
                     </div>
                 </div>
-                {/* {showAlert && (
-                    <div className='alert'>
-                        Incorrect username or password. Please try again.
-                    </div>
-                )} */}
             </div>
         </div>
     );

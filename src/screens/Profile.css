@@ -74,7 +74,7 @@
     cursor: pointer;
     margin-top: 5px;
     margin-bottom: -5px;
-    margin-left: 8rem;
+    margin-left: 6.5rem;
 }
  
 .submit-button:hover {
@@ -95,5 +95,8 @@
 
 .error-message {
     color: red;
-    font-size: larger;
+    font-weight: 600;
+    font-size: smaller;
+    text-align: justify;
+    margin-top: 5px;
 }
