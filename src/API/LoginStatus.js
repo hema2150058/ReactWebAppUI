@@ -1,22 +1,29 @@
 import axios from "axios";
-import apis from "./API_URL";
 
 const config = {
     headers: {
-        "Access-Control-Allow-Origin": "http://localhost:3000",
+        "Access-Control-Allow-Origin": "*",
         "Access-Control-Allow-Methods": "GET,PUT,POST,DELETE,PATCH"
     }
 };
 
-async function LoginStatus(userdata) {
-    console.log("hello 123")
-    const result = await axios.post("http://localhost:5120/Authentication/Login", userdata, config)
-        .then((response) => {
-            console.log(response);
-        }, (error) => {
-            console.log(error);
-        });
-    console.log("Hello " + result);
+export default async function LoginStatus(userdata) {
+
+    const { data } = await axios.post("http://localhost:5120/Authentication/Login", userdata, config);
+
+    return data.statusCode;
 }
 
-export default LoginStatus;
+export async function userDashboard(userId) {
+
+    const { data } = await axios.get("http://localhost:5120/Home/UserDashboard?userId=" + userId, config);
+
+    return data.accounts;
+}
+
+export async function userProfileData(userId) {
+
+    const { data } = await axios.get("http://localhost:5120/Home/UserProfile?userId=" + userId, config);
+
+    return data;
+}
