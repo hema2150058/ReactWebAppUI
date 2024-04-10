@@ -47,6 +47,12 @@ select {
     background-color: lightsteelblue;
 
 }
+.date {
+    padding: 10px;
+    min-height: 2.3rem;
+    margin-left: -10px;
+    width: 109%;
+}
 
 
 input[type="date"]::-webkit-calendar-picker-indicator :active {

@@ -30,6 +30,9 @@ const CreateProfile = () => {
 
     setValidated(true);
   };
+  let curr = new Date();
+  curr.setDate(curr.getDate());
+  let date = curr.toISOString().substring(0, 10);
 
   const [errors, setErrors] = useState({});
  
@@ -41,48 +44,48 @@ const CreateProfile = () => {
       [name]: value
     });
 
-    if (['firstName', 'lastName', 'userName', 'password', 'confirmPassword'].includes(name)) {
-      if (value && value.trim() === '') {
-        setErrors({
-          ...errors,
-          [name]: 'This field is required'
-        });
-      } else {
-        setErrors({
-          ...errors,
-          [name]: ''
-        });
-      }
-    }
+    // if (['firstName', 'lastName', 'userName', 'password', 'confirmPassword'].includes(name)) {
+    //   if (value && value.trim() === '') {
+    //     setErrors({
+    //       ...errors,
+    //       [name]: 'This field is required'
+    //     });
+    //   } else {
+    //     setErrors({
+    //       ...errors,
+    //       [name]: ''
+    //     });
+    //   }
+    // }
 
-    if (name === 'password') {
-      const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      if (!passwordPattern.test(value)) {
-        setErrors({
-          ...errors,
-          password: 'Password must contain at least one lowercase letter, one uppercase letter, one special character, one digit, and be at least 8 characters long'
-        });
-      } else {
-        setErrors({
-          ...errors,
-          password: ''
-        });
-      }
-    }
+    // if (name === 'password') {
+    //   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    //   if (!passwordPattern.test(value)) {
+    //     setErrors({
+    //       ...errors,
+    //       password: 'Password must contain at least one lowercase letter, one uppercase letter, one special character, one digit, and be at least 8 characters long'
+    //     });
+    //   } else {
+    //     setErrors({
+    //       ...errors,
+    //       password: ''
+    //     });
+    //   }
+    // }
 
-    if (name === 'password' || name === 'confirmPassword') {
-      if (formData.confirmPassword !== formData.password) {
-        setErrors({
-          ...errors,
-          confirmPassword: 'Passwords do not match'
-        });
-      } else {
-        setErrors({
-          ...errors,
-          confirmPassword: ''
-        });
-      }
-    }
+    // if (name === 'confirmPassword') {
+    //   if (formData.confirmPassword !== formData.password) {
+    //     setErrors({
+    //       ...errors,
+    //       confirmPassword: 'Passwords do not match'
+    //     });
+    //   } else {
+    //     setErrors({
+    //       ...errors,
+    //       confirmPassword: ''
+    //     });
+    //   }
+    // }
   };
   return (
     <><div>
@@ -163,29 +166,35 @@ const CreateProfile = () => {
                  </Form.Control.Feedback>
                 </div>
               </Col>
-              {/* <Col>
+              <Col>
                 <label>Confirm Password*:</label>
                 <div className="input-container">
-                  <Form.Control type="password" name="confirmPassword" 
+                  <Form.Control type="password" name="confirmPassword"  
                   value={formData.confirmPassword} required pattern={formData.password}
-                   isInvalid={[validated && formData.confirmPassword !== formData.password,]}
-                   onChange={(e) => handleChange(e, 'confirmPassword')} />
-                  {errors.confirmPassword && <p className='cProfile-error-msg'>{errors.confirmPassword}</p>}
+                  isInvalid={ validated && formData.confirmPassword !== formData.password}
+                
+                  //  isInvalid={[validated && (formData.confirmPassword !== formData.password )]}
+                   onChange={handleChange}/>
+                   <Form.Control.Feedback type="invalid">
+                               Passwords do no match 
+                 </Form.Control.Feedback>
+                  {/* {errors.confirmPassword && <p className='cProfile-error-msg'>{errors.confirmPassword}</p>} */}
                 </div>
-              </Col> */}
-              <Col>
+              </Col>
+              {/* <Col>
                 <label>Confirm Password*:</label>
                 <div className="input-container">
                   <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} onBlur={handleChange} />
                   {errors.confirmPassword && <p className='cProfile-error-msg'>{errors.confirmPassword}</p>}
                 </div>
-              </Col>
+              </Col> */}
             </Row>
             <Row className="row">
               <Col>
                 <label>Date of Birth:</label>
-                <div className="input-container">
-                  <input type="date" name="dob" className='date' value={formData.dob} onChange={handleChange} onBlur={handleChange} />
+                <div className="input-container" style={{height: '20px'}}>
+                  <Form.Check type="date" name="dob" className='date' value={formData.dob} 
+                    max={date} onChange={handleChange} onBlur={handleChange} />
                   {/* {errors.dob && <p className='cProfile-error-msg'>{errors.dob}</p>} */}
                 </div>
               </Col>
@@ -199,7 +208,7 @@ const CreateProfile = () => {
 
             </Row>
             <Row className="row">
-              <Col sm={4}>
+              {/* <Col sm={4}>
                 <label>Gender:</label>
                 <div className="input-container">
                   <select name="gender" value={formData.gender} onChange={handleChange} onBlur={handleChange}>
@@ -208,8 +217,20 @@ const CreateProfile = () => {
                     <option value="female">Female</option>
                     <option value="other">Other</option>
                   </select>
-                  {/* {errors.gender && <p className='cProfile-error-msg'>{errors.gender}</p>} */}
+                  
                 </div>
+              </Col> */}
+              <Col sm={4}>
+              <label>Gender:</label>
+                <div className="input-container">
+              <Form.Select aria-label="Default select example" name="gender" style={{backgroundColor: 'lightsteelblue'}}
+               value={formData.gender} onChange={handleChange} onBlur={handleChange} className='form-select'>
+                <option>Select Gender</option>
+                <option value="1">Male</option>
+                <option value="2">Female</option>
+                <option value="3">Other</option>
+              </Form.Select>
+              </div>
               </Col>
 
               <Col sm={8}>
