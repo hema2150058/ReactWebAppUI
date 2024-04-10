@@ -43,7 +43,7 @@ const Dashboard = () => {
           <div className="tab-content">
             {activeTab === 'home' && <Home />}
             {activeTab === 'help' && <p style={pStyle}>Help & Support Content</p>}
-            {activeTab === 'account' && <Profile />}
+            {activeTab === 'account' && <Profile style={{marginTop : '15px'}}/>}
             {activeTab === 'logout' && <p style={pStyle}>Logout Content</p>}
           </div>
         </div>

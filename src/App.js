@@ -5,7 +5,7 @@ import Login from './screens/Authentication/Login.jsx';
 import Dashboard from './screens/Dashboard.jsx';
 // import CreateProfile from './screens/text.jsx';
 import CreateProfile from './screens/Authentication/CreateProfile.jsx';
-//import App1 from './screens/Home/test3.jsx';
+import FormExample from './screens/text2.jsx';
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
         <Route exact path='/' Component={Login} />
         <Route path='/dashboard' Component={Dashboard}/>
         <Route path='/createProfile' Component={CreateProfile}/>
+        <Route path='/example' Component={FormExample} />
       </Routes>
     </Router>  
   );
