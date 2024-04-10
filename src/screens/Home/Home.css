@@ -55,10 +55,10 @@
 
 .custom-btn {
     width: 100%;
-    height: 30px;
+    height: 32px;
     color: #fff;
     border-radius: 5px;
-    padding: 5px 50px 5px 50px;
+    padding: 4px 50px 5px 50px;
     font-family: 'serif';
     font-weight: 600;
     background: transparent;
@@ -101,7 +101,7 @@
     float: left;
    }
    .balance{
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
     font-size: 20px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-weight: bold;
