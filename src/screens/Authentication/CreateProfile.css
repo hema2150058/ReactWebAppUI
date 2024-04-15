@@ -47,6 +47,11 @@ select {
     background-color: lightsteelblue;
 
 }
+
+.form-textarea {
+    background-color: lightsteelblue; 
+}
+
 .date {
     padding: 10px;
     min-height: 2.3rem;
