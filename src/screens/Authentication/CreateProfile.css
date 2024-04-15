@@ -101,3 +101,23 @@ input[type="date"]::-webkit-calendar-picker-indicator :active {
     box-shadow: none;
 } 
  
+
+/* overriding */
+.form-check-input {
+    height: 2.3em ;
+    margin-top: -0.65em;
+}
+
+.was-validated .form-control:valid, .form-control.is-valid {
+    background-image: none;
+}
+
+.was-validated .form-select:valid:not([multiple]):not([size]), .was-validated .form-select:valid:not([multiple])[size="1"], .form-select.is-valid:not([multiple]):not([size]), .form-select.is-valid:not([multiple])[size="1"]{
+    background-image: none;
+}
+
+.form-select {
+    font-size: 0.85rem;
+    height: 2.2rem;
+    font-weight: 500;
+}

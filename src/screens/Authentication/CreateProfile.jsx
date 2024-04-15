@@ -20,6 +20,7 @@ const CreateProfile = () => {
   const navigate = useNavigate();
 
   const [validated, setValidated] = useState(false);
+  
   const handleSubmit1 = (event) => {
     const form = event.currentTarget;
     if (form.checkValidity() === false) {
@@ -27,15 +28,18 @@ const CreateProfile = () => {
       event.stopPropagation();
       alert('Please fill out all required fields and fix validation errors');
     }
-
+    else{
+    console.log(JSON.stringify(formData));
+    alert('registred');
+    navigate('/');
+    }
     setValidated(true);
+
   };
+  var phoneValid = /^\(?([0-9]{3})\)?[-. ]?([0-9]{3})[-. ]?([0-9]{4})$/;
   let curr = new Date();
   curr.setDate(curr.getDate());
-  let date = curr.toISOString().substring(0, 10);
-
-  const [errors, setErrors] = useState({});
- 
+  let date = curr.toISOString().substring(0, 10); 
 
   const handleChange = (e, field) => {
     const { name, value } = e.target;
@@ -44,48 +48,6 @@ const CreateProfile = () => {
       [name]: value
     });
 
-    // if (['firstName', 'lastName', 'userName', 'password', 'confirmPassword'].includes(name)) {
-    //   if (value && value.trim() === '') {
-    //     setErrors({
-    //       ...errors,
-    //       [name]: 'This field is required'
-    //     });
-    //   } else {
-    //     setErrors({
-    //       ...errors,
-    //       [name]: ''
-    //     });
-    //   }
-    // }
-
-    // if (name === 'password') {
-    //   const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-    //   if (!passwordPattern.test(value)) {
-    //     setErrors({
-    //       ...errors,
-    //       password: 'Password must contain at least one lowercase letter, one uppercase letter, one special character, one digit, and be at least 8 characters long'
-    //     });
-    //   } else {
-    //     setErrors({
-    //       ...errors,
-    //       password: ''
-    //     });
-    //   }
-    // }
-
-    // if (name === 'confirmPassword') {
-    //   if (formData.confirmPassword !== formData.password) {
-    //     setErrors({
-    //       ...errors,
-    //       confirmPassword: 'Passwords do not match'
-    //     });
-    //   } else {
-    //     setErrors({
-    //       ...errors,
-    //       confirmPassword: ''
-    //     });
-    //   }
-    // }
   };
   return (
     <><div>
@@ -96,7 +58,6 @@ const CreateProfile = () => {
       </header>
       <Container className='cProfile-container'>
         <h2>Create Profile</h2>
-        {/* <form onSubmit={handleSubmit} > */}
         <Form noValidate validated={validated} className='cProfile-form' onSubmit={handleSubmit1}>
           <Container style={{ marginTop: '15px' }}>
             <Row className="row">
@@ -144,7 +105,7 @@ const CreateProfile = () => {
                 <label>Email*:</label>
                 <div className="input-container">
                   <Form.Control type="text" name="email" placeholder='Enter your email' 
-                  value={formData.email} required pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$'
+                  value={formData.email}  pattern='^[^\s@]+@[^\s@]+\.[^\s@]+$' required
                   isInvalid={validated && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)}
                   onChange={(e) => handleChange(e, 'email')} />
                   <Form.Control.Feedback type="invalid">
@@ -157,8 +118,8 @@ const CreateProfile = () => {
               <Col>
                 <label>Password*:</label>
                 <div className="input-container">
-                  <Form.Control type="password" name="password" 
-                  value={formData.password} required pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
+                  <Form.Control type="password" name="password" required
+                  value={formData.password}  pattern='^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$'
                   isInvalid={validated && !/^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/.test(formData.password)}
                   onChange={(e) => handleChange(e, 'password')} onBlur={handleChange} />
                   <Form.Control.Feedback type="invalid">
@@ -169,62 +130,43 @@ const CreateProfile = () => {
               <Col>
                 <label>Confirm Password*:</label>
                 <div className="input-container">
-                  <Form.Control type="password" name="confirmPassword"  
-                  value={formData.confirmPassword} required pattern={formData.password}
+                  <Form.Control type="password" name="confirmPassword" required
+                  value={formData.confirmPassword}  pattern={formData.password}
                   isInvalid={ validated && formData.confirmPassword !== formData.password}
-                
-                  //  isInvalid={[validated && (formData.confirmPassword !== formData.password )]}
-                   onChange={handleChange}/>
+                  onChange={handleChange}/>
                    <Form.Control.Feedback type="invalid">
-                               Passwords do no match 
+                   Please enter a valid password                                 
                  </Form.Control.Feedback>
                   {/* {errors.confirmPassword && <p className='cProfile-error-msg'>{errors.confirmPassword}</p>} */}
                 </div>
               </Col>
-              {/* <Col>
-                <label>Confirm Password*:</label>
-                <div className="input-container">
-                  <input type="password" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} onBlur={handleChange} />
-                  {errors.confirmPassword && <p className='cProfile-error-msg'>{errors.confirmPassword}</p>}
-                </div>
-              </Col> */}
+              
             </Row>
             <Row className="row">
               <Col>
                 <label>Date of Birth:</label>
                 <div className="input-container" style={{height: '20px'}}>
                   <Form.Check type="date" name="dob" className='date' value={formData.dob} 
-                    max={date} onChange={handleChange} onBlur={handleChange} />
+                    max={date} onChange={handleChange} />
                   {/* {errors.dob && <p className='cProfile-error-msg'>{errors.dob}</p>} */}
                 </div>
               </Col>
               <Col>
-                <label>Phone Number:</label>
-                <div className="input-container">
-                  <input type="text" name="phoneNumber" maxLength={10} value={formData.phoneNumber} onChange={handleChange} onBlur={handleChange} />
-                  {/* {errors.phoneNumber && <p className='cProfile-error-msg'>{errors.phoneNumber}</p>} */}
+                <label style={{marginBottom: '15px'}}>Phone Number:</label>
+                <div className="input-container" >
+                  <Form.Check type="text" name="phoneNumber" maxLength={10} 
+                  value={formData.phoneNumber} onChange={handleChange} />
                 </div>
               </Col>
 
             </Row>
             <Row className="row">
-              {/* <Col sm={4}>
-                <label>Gender:</label>
-                <div className="input-container">
-                  <select name="gender" value={formData.gender} onChange={handleChange} onBlur={handleChange}>
-                    <option value="">Select Gender</option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                  </select>
-                  
-                </div>
-              </Col> */}
               <Col sm={4}>
               <label>Gender:</label>
                 <div className="input-container">
-              <Form.Select aria-label="Default select example" name="gender" style={{backgroundColor: 'lightsteelblue'}}
-               value={formData.gender} onChange={handleChange} onBlur={handleChange} className='form-select'>
+              <Form.Select name="gender" style={{backgroundColor: 'lightsteelblue'}}
+               value={formData.gender} onChange={handleChange} className='form-select' 
+               onInvalid={!validated}>
                 <option>Select Gender</option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
@@ -236,8 +178,8 @@ const CreateProfile = () => {
               <Col sm={8}>
                 <label>Address:</label>
                 <div className="input-container">
-                  <input name="address" value={formData.address} onChange={handleChange} rows={1} onBlur={handleChange} />
-                  {/* {errors.address && <p className='cProfile-error-msg'>{errors.address}</p>} */}
+                  <Form.Control as='textarea' name="address" value={formData.address} onChange={handleChange} rows={1} 
+                   />                  
                 </div>
               </Col>
             </Row>
@@ -252,147 +194,3 @@ const CreateProfile = () => {
 };
 
 export default CreateProfile;
-
-
-// import React from "react";
-// import styled from "styled-components";
-// //import { GlobalStyle } from "./Styles/globalStyles";
-// import { useFormik } from "formik";
-// import { signUpSchema } from "../../components";
-
-// const initialValues = {
-//   name: "",
-//   email: "",
-//   password: "",
-//   confirm_password: "",
-// };
-
-// const CreateProfile = () => {
-//   const { values, errors, touched, handleBlur, handleChange, handleSubmit } =
-//     useFormik({
-//       initialValues,
-//       validationSchema: signUpSchema,
-//       onSubmit: (values, action) => {
-//         console.log(
-//           "🚀 ~ file: Registration.jsx ~ line 11 ~ Registration ~ values",
-//           values
-//         );
-//         action.resetForm();
-//       },
-//     });
-//   console.log(
-//     "🚀 ~ file: Registration.jsx ~ line 25 ~ Registration ~ errors",
-//     errors
-//   );
-
-//   return (
-//     <>
-//         <div className="container">
-//           <div className="modal">
-//             <div className="modal-container">
-//               <div className="modal-left">
-//                 <h1 className="modal-title">Welcome!</h1>
-//                 <p className="modal-desc">
-//                   To the thapa technical website for programmers.
-//                 </p>
-//                 <form onSubmit={handleSubmit}>
-//                   <div className="input-block">
-//                     <label htmlFor="name" className="input-label">
-//                       Name
-//                     </label>
-//                     <input
-//                       type="name"
-//                       autoComplete="off"
-//                       name="name"
-//                       id="name"
-//                       placeholder="Name"
-//                       value={values.name}
-//                       onChange={handleChange}
-//                       onBlur={handleBlur}
-//                     />
-//                     {errors.name && touched.name ? (
-//                       <p className="form-error">{errors.name}</p>
-//                     ) : null}
-//                   </div>
-//                   <div className="input-block">
-//                     <label htmlFor="email" className="input-label">
-//                       Email
-//                     </label>
-//                     <input
-//                       type="email"
-//                       autoComplete="off"
-//                       name="email"
-//                       id="email"
-//                       placeholder="Email"
-//                       value={values.email}
-//                       onChange={handleChange}
-//                       onBlur={handleBlur}
-//                     />
-//                     {errors.email && touched.email ? (
-//                       <p className="form-error">{errors.email}</p>
-//                     ) : null}
-//                   </div>
-//                   <div className="input-block">
-//                     <label htmlFor="password" className="input-label">
-//                       Password
-//                     </label>
-//                     <input
-//                       type="password"
-//                       autoComplete="off"
-//                       name="password"
-//                       id="password"
-//                       placeholder="Password"
-//                       value={values.password}
-//                       onChange={handleChange}
-//                       onBlur={handleBlur}
-//                     />
-//                     {errors.password && touched.password ? (
-//                       <p className="form-error">{errors.password}</p>
-//                     ) : null}
-//                   </div>
-//                   <div className="input-block">
-//                     <label htmlFor="confirm_password" className="input-label">
-//                       Confirm Password
-//                     </label>
-//                     <input
-//                       type="password"
-//                       autoComplete="off"
-//                       name="confirm_password"
-//                       id="confirm_password"
-//                       placeholder="Confirm Password"
-//                       value={values.confirm_password}
-//                       onChange={handleChange}
-//                       onBlur={handleBlur}
-//                     />
-//                     {errors.confirm_password && touched.confirm_password ? (
-//                       <p className="form-error">{errors.confirm_password}</p>
-//                     ) : null}
-//                   </div>
-//                   <div className="modal-buttons">
-//                     <a href="#" className="">
-//                       Want to register using Gmail?
-//                     </a>
-//                     <button className="input-button" type="submit">
-//                       Registration
-//                     </button>
-//                   </div>
-//                 </form>
-//                 <p className="sign-up">
-//                   Already have an account? <a href="#">Sign In now</a>
-//                 </p>
-//               </div>
-//               <div className="modal-right">
-//                 <img
-//                   src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=dfd2ec5a01006fd8c4d7592a381d3776&auto=format&fit=crop&w=1000&q=80"
-//                   alt=""
-//                 />
-//               </div>
-//             </div>
-//           </div>
-//         </div>
-      
-//     </>
-//   );
-// };
-
-// export default CreateProfile;

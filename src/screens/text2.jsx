@@ -14,11 +14,14 @@ function FormExample() {
   let date = curr.toISOString().substring(0, 10);
 
   const schema = yup.object().shape({
+    userName: yup.object().required(),
+    password: yup.string().required(),
+    confirmPassword: yup.string().required(),
     firstName: yup.string().required(),
     lastName: yup.string().required(),
     username: yup.string().required(),
     date: yup.date(),
-    phoneNumber: yup.string().matches(phoneValid,'please enter valid phone number'),
+    phoneNumber: yup.string().matches(phoneValid, 'please enter valid phone number'),
     gender: yup.string(),
     address: yup.string(),
   });
@@ -28,13 +31,16 @@ function FormExample() {
       validationSchema={schema}
       onSubmit={console.log}
       initialValues={{
-        firstName: 'Mark',
-        lastName: 'Otto',
-        username: '',
-        date: '',
-        phoneNumber: '',
+        userName: '',
+        password: '',
+        confirmPassword: '',
+        email: '',
+        firstName: '',
+        lastName: '',
+        dob: '',
         gender: '',
-        address: '',
+        phoneNumber: '',
+        address: ''
       }}
     >
       {({ handleSubmit, handleChange, values, touched, errors }) => (
@@ -114,8 +120,8 @@ function FormExample() {
             </Form.Group>
             <Form.Group as={Col} md="3" controlId="validationFormik05">
               <Form.Label>Gender:</Form.Label>
-              <Form.Select aria-label="Default select example" name="gender" style={{backgroundColor: 'lightsteelblue'}}
-               value={values.gender} onChange={handleChange} >
+              <Form.Select aria-label="Default select example" name="gender" style={{ backgroundColor: 'lightsteelblue' }}
+                value={values.gender} onChange={handleChange} >
                 <option>Select Gender</option>
                 <option value="1">Male</option>
                 <option value="2">Female</option>
@@ -136,14 +142,14 @@ function FormExample() {
             </Form.Group>
           </Row>
           <Form.Group className="mb-3">
-          <Form.Label>Address:</Form.Label>
-              <Form.Control as='textarea'
-                aria-label="With textarea"
-                name="address" 
-                value={values.address}
-                onChange={handleChange}
-                //isInvalid={!!errors.address}
-              />
+            <Form.Label>Address:</Form.Label>
+            <Form.Control as='textarea'
+              aria-label="With textarea"
+              name="address"
+              value={values.address}
+              onChange={handleChange}
+            //isInvalid={!!errors.address}
+            />
           </Form.Group>
           <Button type="submit">Submit form</Button>
         </Form>
