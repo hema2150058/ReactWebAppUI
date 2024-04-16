@@ -178,7 +178,7 @@ const CreateProfile = () => {
               <Col sm={8}>
                 <label>Address:</label>
                 <div className="input-container">
-                  <Form.Control as='textarea' name="address" value={formData.address} onChange={handleChange} rows={1} 
+                  <Form.Control as='textarea' name="address" className='form-textarea' value={formData.address} onChange={handleChange} rows={1} 
                    />                  
                 </div>
               </Col>
