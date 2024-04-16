@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router';
 import { userDashboard } from '../../API/LoginStatus';
+import Navbar from '../NavBar/Navbar';
 
 import './Home.css';
 
@@ -23,9 +24,17 @@ function Home() {
             }
         }
         getDashboardData();
-    }, [navigate])
+    })
+
+    function handleAccount(item) {
+        localStorage.setItem("accountDetails", JSON.stringify(item));
+        //console.log(JSON.stringify(item))
+        navigate('/accountDetails');
+    }
+
     return (
         <>
+            <Navbar currentTab="home" />
             {isLoading &&
                 <div className='mainDiv'>
                     <div className='welcomeUser'>
@@ -37,23 +46,13 @@ function Home() {
                             <div className="accountCard" key={item.accountId}>
                                 <div className="accountCard-a">
                                     <div className="accountCard-1">
-                                        {(item.accountType === "HSA") ?
-                                            <p className='accountName' style={{ color: '#00a700' }}>{item.accountName}</p>
-                                            :
-                                            (item.accountType === "ESF") ?
-                                                <p className='accountName' style={{ color: '#922828' }}>{item.accountName}</p>
-                                                :
-                                                (item.accountType === "HIA") ?
-                                                    <p className='accountName' style={{ color: '#ffae00' }}>{item.accountName}</p>
-                                                    :
-                                                    <p className='accountName' style={{ color: '#2600ff' }}>{item.accountName}</p>}
-
+                                        <p className='accountName'>{item.accountName}</p>
                                         <p className='employerName'>{item.employerName}</p>
                                     </div>
                                 </div>
                                 <div className="accountCard-b">
                                     <div className="accountCard-2">
-                                        <button className="custom-btn btn-1">View Investment Dashboard</button>
+                                        <button onClick={handleAccount.bind(this, item)} className="custom-btn btn-1">View Investment Dashboard</button>
                                     </div>
                                     <div className='balance'>
                                         Balance: ${item.balance}

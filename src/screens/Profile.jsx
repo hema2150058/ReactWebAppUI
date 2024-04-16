@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEdit, faSave, faSquareCheck } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router';
 import { userProfileData } from '../API/LoginStatus';
+import Navbar from './NavBar/Navbar';
 
 
 const Profile = () => {
@@ -143,6 +144,7 @@ const Profile = () => {
 
     return (
         <>
+            <Navbar currentTab="profile" />
         { isLoading &&
         <div className="profile-main">
             <img className='profileImg' src={require('../assets/sampleProfileImg.jpg')} alt="profileImg" />

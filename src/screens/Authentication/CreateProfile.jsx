@@ -53,7 +53,7 @@ const CreateProfile = () => {
     <><div>
       <header className="header">
         <NavLink to='/'>
-          <img src={require('../../assets/InspiraLogo.jpg')} alt="Logo" width={120} height={70} />
+          <img src={require('../../assets/logo.png')} alt="Logo" width={90} height={65} />
         </NavLink>
       </header>
       <Container className='cProfile-container'>

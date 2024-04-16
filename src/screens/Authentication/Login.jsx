@@ -44,7 +44,7 @@ const Login = () => {
         // Check if entered credentials match static data
         if (response==="Success") {
             // Navigate to dashboard if credentials are valid
-            navigate('/dashboard');
+            navigate('/home');
         } else if (!username.trim() && !password.trim()) {
             setUserNameError('Username is required');
             setPasswordError('Password is required');
@@ -86,7 +86,7 @@ const Login = () => {
         <div className='mainSection'>
             <header className="header">
                 <NavLink to='/'>
-                    <img src={require('../../assets/InspiraLogo.jpg')} alt="Logo" width={120} height={70} />
+                    <img src={require('../../assets/logo.png')} alt="Logo" width={90} height={65} />
                 </NavLink>
             </header>
             <div className="login-container">
@@ -129,8 +129,8 @@ const Login = () => {
                     </div>
                     <div className='verticalLine'></div>
                     <div className="create-profile-container">
-                        <h2 className='h2style'>New to Inspira Financial?</h2>
-                        <p style={{ marginTop: 20 }}>Create an online profile to manage your Inspira account. </p>
+                        <h2 className='h2style'>New to this portal?</h2>
+                        <p style={{ marginTop: 20 }}>Create an online profile to manage your account online. </p>
                         <button type='button' className='profilebutton' onClick={handleRegister}><h6 style={{ marginTop: 5 }}>CREATE PROFILE</h6></button>
                     </div>
                 </div>
