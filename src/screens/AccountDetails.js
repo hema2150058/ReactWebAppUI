@@ -1,9 +1,9 @@
 import React from 'react';
-import './AccountDetails.css'; // Import CSS file for styling
+import './AccountDetails.css';
 import Navbar from './NavBar/Navbar';
 
 function AccountDetails() {
-    // Sample account details (replace with your actual data)
+    // Sample account details
     const accountD = JSON.parse(localStorage.getItem("accountDetails"));
     const account = {
         name: 'John Doe',
