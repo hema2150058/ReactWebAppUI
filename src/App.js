@@ -1,22 +1,23 @@
 import './App.css';
 import React from 'react';
-import {BrowserRouter as Router, Routes, Route  } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './screens/Authentication/Login.jsx';
-import Dashboard from './screens/Dashboard.jsx';
-// import CreateProfile from './screens/text.jsx';
 import CreateProfile from './screens/Authentication/CreateProfile.jsx';
-import FormExample from './screens/text2.jsx';
+import AccountDetails from './screens/AccountDetails';
+import Profile from './screens/Profile';
+import Home from './screens/Home/Home';
 
 function App() {
   return (
     <Router>
       <Routes>
         <Route exact path='/' Component={Login} />
-        <Route path='/dashboard' Component={Dashboard}/>
-        <Route path='/createProfile' Component={CreateProfile}/>
-        <Route path='/example' Component={FormExample} />
+        <Route path='/home' Component={Home} />
+        <Route path='/createProfile' Component={CreateProfile} />
+        <Route path='/profile' Component={Profile} />
+        <Route path='/accountDetails' Component={AccountDetails} />
       </Routes>
-    </Router>  
+    </Router>
   );
 }
 

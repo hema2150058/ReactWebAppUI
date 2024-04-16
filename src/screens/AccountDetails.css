@@ -1,0 +1,35 @@
+*{
+  box-sizing: border-box;
+}
+.account-details {
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    margin-bottom: 0px;
+  }
+  .title{
+    margin-bottom: 10px;
+    color: rgb(0, 19, 116);
+    padding: 10px;
+  } 
+  .detail {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    background-color: rgb(6, 0, 183);
+    padding: 1.5%;
+    border-radius: 10px;
+    color: rgb(255, 255, 255);
+  }
+   
+  .detail span {
+    font-weight: bold;
+  }
+   
+  .detail span:last-child {
+    text-align: right;
+    font-style: italic;;
+  }
